@@ -8,7 +8,18 @@ const container = {
     transition: {
       duration: 0.6,
       ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
+  },
+}
+
+const headerItem = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
@@ -43,20 +54,32 @@ export function Hero() {
       viewport={{ once: true, amount: 0.5 }}
       className="space-y-10"
     >
-      <div className="space-y-4">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-sky-400">
+      <motion.div className="space-y-4">
+        <motion.p
+          variants={headerItem}
+          className="text-xs font-medium uppercase tracking-[0.2em] text-sky-400"
+        >
           AI & Software Engineer
-        </p>
-        <h1 className="text-balance text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl md:text-5xl">
+        </motion.p>
+        <motion.h1
+          variants={headerItem}
+          className="text-balance text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl md:text-5xl"
+        >
           안녕하세요, <span className="text-sky-400">AI/Software Engineer</span> 로 성장하고 있는
           <br className="hidden sm:block" /> 포트폴리오 주인장입니다.
-        </h1>
-        <p className="max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
-          데이터와 알고리즘, 그리고 제품 개발을 연결하는 엔지니어를 지향합니다.  
-          머신러닝/딥러닝 기반의 AI 시스템과 웹 서비스를 설계·구현하며, 사용자 경험과 코드 품질을 모두
-          중요하게 생각합니다. 협업과 커뮤니케이션을 통해 팀 전체의 생산성을 높이는 역할을 하고 싶습니다.
-        </p>
-      </div>
+        </motion.h1>
+        <motion.div
+          variants={headerItem}
+          className="max-w-2xl space-y-2 text-sm leading-relaxed text-slate-300 sm:text-base"
+        >
+          <p>데이터와 알고리즘, 그리고 제품 개발을 연결하는 엔지니어를 지향합니다.</p>
+          <p>
+            머신러닝/딥러닝 기반의 AI 시스템과 웹 서비스를 설계·구현하며, 사용자 경험과 코드 품질을 모두
+            중요하게 생각합니다.
+          </p>
+          <p>협업과 커뮤니케이션을 통해 팀 전체의 생산성을 높이는 역할을 하고 싶습니다.</p>
+        </motion.div>
+      </motion.div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {values.map((value, index) => (

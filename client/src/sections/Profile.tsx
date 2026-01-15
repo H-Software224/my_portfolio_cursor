@@ -15,7 +15,18 @@ const sectionVariants = {
     transition: {
       duration: 0.6,
       ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
+  },
+}
+
+const headerItem = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
@@ -65,7 +76,13 @@ function TimelineColumn({
   items: TimelineItem[]
 }) {
   return (
-    <div className="space-y-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
+    <motion.div
+      className="space-y-4 rounded-2xl border border-slate-800 bg-slate-950/60 p-4"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    >
       <h3 className="text-sm font-semibold tracking-tight text-slate-50">{title}</h3>
       <ol className="space-y-4 border-l border-slate-800 pl-3 text-xs text-slate-300">
         {items.map((item) => (
@@ -88,7 +105,7 @@ function TimelineColumn({
           </li>
         ))}
       </ol>
-    </div>
+    </motion.div>
   )
 }
 
@@ -101,14 +118,20 @@ export function Profile() {
       viewport={{ once: true, amount: 0.35 }}
       className="space-y-6"
     >
-      <header className="space-y-2">
-        <h2 className="text-lg font-semibold tracking-tight text-slate-50 sm:text-xl">
+      <motion.header className="space-y-2">
+        <motion.h2
+          variants={headerItem}
+          className="text-lg font-semibold tracking-tight text-slate-50 sm:text-xl"
+        >
           Profile
-        </h2>
-        <p className="max-w-2xl text-xs text-slate-400 sm:text-sm">
+        </motion.h2>
+        <motion.p
+          variants={headerItem}
+          className="max-w-2xl text-xs leading-relaxed text-slate-400 sm:text-sm"
+        >
           학력, 대외활동, 수상, 자격증 등 커리어의 흐름을 한 눈에 볼 수 있도록 정리했습니다.
-        </p>
-      </header>
+        </motion.p>
+      </motion.header>
 
       <div className="grid gap-4 md:grid-cols-2">
         <TimelineColumn title="Education" items={education} />

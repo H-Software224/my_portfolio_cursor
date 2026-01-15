@@ -111,6 +111,8 @@ const sectionVariants = {
     transition: {
       duration: 0.6,
       ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
 }
@@ -146,15 +148,27 @@ export function Projects() {
         viewport={{ once: true, amount: 0.35 }}
         className="space-y-6"
       >
-        <header className="space-y-2">
-          <h2 className="text-lg font-semibold tracking-tight text-slate-50 sm:text-xl">
+        <motion.header className="space-y-2">
+          <motion.h2
+            variants={{
+              hidden: { opacity: 0, y: 12 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+            }}
+            className="text-lg font-semibold tracking-tight text-slate-50 sm:text-xl"
+          >
             Projects
-          </h2>
-          <p className="max-w-2xl text-xs text-slate-400 sm:text-sm">
+          </motion.h2>
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 12 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.35, delay: 0.05 } },
+            }}
+            className="max-w-2xl text-xs leading-relaxed text-slate-400 sm:text-sm"
+          >
             실제로 설계·구현해 본 메인 프로젝트들입니다. 각 카드를 클릭하면 문제 정의부터 결과까지의
             상세 과정을 확인할 수 있습니다.
-          </p>
-        </header>
+          </motion.p>
+        </motion.header>
 
         <div className="grid gap-4 lg:grid-cols-2">
           {projects.map((project, index) => (
