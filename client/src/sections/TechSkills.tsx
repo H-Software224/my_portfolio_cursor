@@ -2,27 +2,27 @@ import { motion } from 'framer-motion'
 
 type Skill = {
   name: string
-  category: 'Language' | 'Frontend' | 'Backend' | 'AI / ML' | 'DevOps & Cloud' | 'Tools'
+  category: 'Programming Language' | 'Web Development' | 'App Development' | 'Database Management' | 'Graph Framework' | 'Version Control' | 'Cloud Framework'
 }
 
 const skills: Skill[] = [
-  { name: 'TypeScript', category: 'Language' },
-  { name: 'Python', category: 'Language' },
-  { name: 'React', category: 'Frontend' },
-  { name: 'Next.js', category: 'Frontend' },
-  { name: 'Tailwind CSS', category: 'Frontend' },
-  { name: 'Node.js', category: 'Backend' },
-  { name: 'Express', category: 'Backend' },
-  { name: 'PostgreSQL', category: 'Backend' },
-  { name: 'Redis', category: 'Backend' },
-  { name: 'PyTorch', category: 'AI / ML' },
-  { name: 'TensorFlow', category: 'AI / ML' },
-  { name: 'scikit-learn', category: 'AI / ML' },
-  { name: 'MLOps (MLflow, Docker)', category: 'AI / ML' },
-  { name: 'AWS / GCP', category: 'DevOps & Cloud' },
-  { name: 'Docker', category: 'DevOps & Cloud' },
-  { name: 'Git / GitHub', category: 'Tools' },
-  { name: 'Jira / Notion', category: 'Tools' },
+  { name: 'Python', category: 'Programming Language' },
+  { name: 'SQL', category: 'Programming Language' },
+  { name: 'JavaScript', category: 'Programming Language' },
+  { name: 'C++', category: 'Programming Language' },
+  { name: 'HTML/CSS', category: 'Programming Language' },
+  { name: 'Dart/Flutter', category: 'Programming Language' },
+  { name: 'Kotlin', category: 'Programming Language' },
+  { name: 'Streamlit', category: 'Web Development' },
+  { name: 'React', category: 'Web Development' },
+  { name: 'Kotlin', category: 'App Development' },
+  { name: 'Dart/Flutter', category: 'App Development' },
+  { name: 'Node.js', category: 'Database Management' },
+  { name: 'MySQL', category: 'Database Management' },
+  { name: 'Figma', category: 'Graph Framework' },
+  { name: 'Git', category: 'Version Control' },
+  { name: 'AWS', category: 'Cloud Framework' },
+  { name: 'Docker', category: 'Cloud Framework' },
 ]
 
 const sectionVariants = {
