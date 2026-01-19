@@ -9,7 +9,7 @@ function App() {
       <header className="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
         <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           <div className="text-sm font-semibold tracking-tight text-slate-100">
-            AI & Software Engineer Portfolio
+            My Portfolio
           </div>
           <div className="flex gap-4 text-xs text-slate-300">
             <a href="#hero" className="hover:text-sky-400">
