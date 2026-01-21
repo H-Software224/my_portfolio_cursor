@@ -5,7 +5,6 @@ type TimelineItem = {
   title: string
   subtitle?: string
   description?: string
-  image?: string
   logo?: string
 }
 
@@ -38,19 +37,21 @@ const education: TimelineItem[] = [
     title: '경희대학교',
     subtitle: '소프트웨어융합대학 소프트웨어융합학과 데이터사이언스트랙 전공',
     description: '1. 소프트웨어융합학과의 데이터 사이언스 트랙으로 캡스톤디자인은 한 학기 동안 우리나라에 존재하는 사회 문제들을 분석하며 차별점에 대해 찾는 것이 피땀흐르는 노력이라고 느꼈습니다. 2. 졸업논문을 캡스톤디자인을 기반으로 서론 -> 관련 연구 -> 본론 -> 결론 형식으로 탐구하는 연구를 명확하게 파악',
-    logo: '/images/profile/kyunghee-university.jpg',
+    logo: '/images/profile/kyunghee_university.jpg',
   },
   {
     period: '2025.07 – 2025.08',
     title: '데이터리안',
     subtitle: 'SQL 데이터 분석 캠프',
     description: '개요: SQL에 대하여 실무의 기본 및 활용력을 기를 수 있는 데이터 분석 부트캠프 내용:  고객 신용 등급 분석, 리텐션 분석: ARRR기법에 대해서 사용자획득, GA4 커널 분석으로 사용자가 방문한 횟수로 분석 결과: RFM분석으로 3가지->6가지 세분화 유형으로 더욱 세부적으로 멤버십 혜택을 누리도록 제공하며 더욱 넓은 기회 제공.',
+    logo: '/images/profile/datarian.png',
   },
   {
     period: '2024.01 – 2024.02',
     title: 'LG AI Research',
     subtitle: 'LG Aimers 6기',
     description: '개요: LG에서의 사회 문제들을 연구 내용:  온라인 이론 강의 + 온라인 공모전 데이터 프로젝트 수행 결과: 데이터 분석 성능 지표를 이용하여 데이터에 영향을 미치는 요소에 대한 수료 획득',
+    logo: '/images/profile/lg-color.png',
   },
 ]
 
@@ -60,18 +61,21 @@ const activities: TimelineItem[] = [
     title: 'Amazon Cloud Club',
     subtitle: 'AWS 클라우드 스터디 및 프로젝트 활동 동아리',
     description: '역할: 동아리 부원, 미니 프로젝트 팀장 수행 과정:  AWS Console Infra를 직접 구축을 위한 이론 수업/실습, 매주 1회마다 AWS Console을 이용하여 직접 아키텍처를 구현. 성과:  캡스톤디자인에서 AWS EC2에 있는 인스턴스로 서버들을 개설하여 AWS RDS 중 MySQL을 이용하여 시스템을 개발에 완성 느낀 점: 완성물의 파이프라인 아키텍처들을 쉽게 빌드할 수 있었으며, 절대적으로 클라우드에서 필요하다고 인식함.',
+    logo: '/images/profile/aws_cloud_club.svg',
   },
   {
     period: '2024.03 – 2024.12',
     title: 'KHUDA(KHU Data)',
     subtitle: '경희대학교 데이터 분석 동아리/학회',
     description: '개요: 데이터분석에 관련된 동아리를 가입해 본적이 없어서 한 번 가입해보고 싶어서 데이터 분석 동아리 내용: 데이터분석 전문가의 강연을 통해서 트랙별 실무 양성 데이터 분석에 대하여 심화세션, 토이 프로젝트 등 이러한 데이터 분석 프로젝트를 캐리해야 하겠다는 마음을 임하여 활동을 하였습니다. 스터디, 커뮤니티에 참여하여 데이터에 대한 지식을 쌓아가고, 심화 세션을 통해서 데이터 비즈니스, 추천 시스템 분야를 심화 프로젝트에서 데이터 전처리에 대한 활동을 한 동아리입니다. 성과: 동아리에서 결국에 팀 협업 및 친목활동을 즐기면서 심화 세션 및 스터디 세션을 직접 팀장으로서 이끌거나 팀원으로서 주어진 일을 수행하면서 데이터 비즈니스, 추천시스템, 경영정보 시각화(Power BI, Tableau)와 같은 수업들을 배우고 경험을 하였습니다.',
+    logo: '/images/profile/khuda.png',
   },
   {
     period: '2025.09 – 2026.02',
     title: 'BDAI 빅데이터분석학회',
     subtitle: '빅데이터 분석 및 연구회',
-    description: '개요: 인공지능에관련된 동아리를 가입해 본적이 없어서 한 번 가입해보고 싶어서 AI 동아리 내용: AI 전문가의 강연을 통해서 트랙별 실무 양성 인공지능에 대하여 심화세션, 토이 프로젝트 등 이러한 인공지능 프로젝트를 캐리해야 하겠다는 마음을 임하여 활동을 하였습니다. 스터디, 커뮤니티에 참여하여 인공지능에 대한 지식을 쌓아가고, 심화 세션을 통해서 컴퓨터 비전, 자연어 처리 분야를 심화 프로젝트에서 데이터 전처리에 대한 활동을 한 동아리입니다. 시계열 데이터 분석을 Gradient Boost을 이용하여 전류, 전압, 저항, 유효 전류, 무효 전류를 이용하여  SMAPE로 0.21% 달성 느낀 점: 업무와 생각하는 가치관에 비교하며 더욱 사람들과 소통하며 참고해야 할 사항들을 생각하고 자기 성찰을 하게 된 계기 마련'
+    description: '개요: 인공지능에관련된 동아리를 가입해 본적이 없어서 한 번 가입해보고 싶어서 AI 동아리 내용: AI 전문가의 강연을 통해서 트랙별 실무 양성 인공지능에 대하여 심화세션, 토이 프로젝트 등 이러한 인공지능 프로젝트를 캐리해야 하겠다는 마음을 임하여 활동을 하였습니다. 스터디, 커뮤니티에 참여하여 인공지능에 대한 지식을 쌓아가고, 심화 세션을 통해서 컴퓨터 비전, 자연어 처리 분야를 심화 프로젝트에서 데이터 전처리에 대한 활동을 한 동아리입니다. 시계열 데이터 분석을 Gradient Boost을 이용하여 전류, 전압, 저항, 유효 전류, 무효 전류를 이용하여  SMAPE로 0.21% 달성 느낀 점: 업무와 생각하는 가치관에 비교하며 더욱 사람들과 소통하며 참고해야 할 사항들을 생각하고 자기 성찰을 하게 된 계기 마련',
+    logo: '/images/profile/bdai.jpg',
   },
 ]
 
@@ -112,37 +116,37 @@ const certificates: TimelineItem[] = [
   {
     period: '2025',
     title: '소프트웨어 역량시험(TOPCIT) 3수준',
-    logo: '/images/profile/topcit.jpg',
+    logo: '/images/profile/topcit.svg',
   },
   {
     period: '2024',
     title: 'SQL 개발자(SQLD)', 
-    logo: '/images/profile/sqld.jpg',
+    logo: '/images/profile/sqld.png',
   },
   {
     period: '2025',
     title: '데이터분석 준전문가(ADsP)',
-    logo: '/images/profile/adsp.jpg',
+    logo: '/images/profile/adsp.png',
   },
   {
     period: '2022',
     title: '컴퓨터활용능력 1급',
-    logo: '/images/profile/computer-expert.jpg',
+    logo: '/images/profile/korcham.png',
   },
   {
     period: '2010',
     title: '워드프로세서 2급',
-    logo: '/images/profile/word-processor.jpg',
+    logo: '/images/profile/korcham.png',
   },
   {
     period: '2025',
     title: 'OPIc IL',
-    logo: '/images/profile/opic.jpg',
+    logo: '/images/profile/opic.png',
   },
   {
     period: '2025',
     title: 'TOEIC 570점',
-    logo: '/images/profile/toeic.jpg',
+    logo: '/images/profile/toeic.png',
   },
 ]
 

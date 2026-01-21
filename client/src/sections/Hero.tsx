@@ -119,15 +119,6 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="absolute -bottom-2 -right-2 rounded-lg border border-sky-500/30 bg-slate-900/90 px-3 py-1.5 text-xs font-medium text-sky-300 shadow-lg backdrop-blur-sm"
-            >
-              AI Engineer
-            </motion.div>
           </div>
         </motion.div>
       </div>

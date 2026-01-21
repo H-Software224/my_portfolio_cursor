@@ -13,10 +13,10 @@ function App() {
           </div>
           <div className="flex gap-4 text-xs text-slate-300">
             <a href="#hero" className="hover:text-sky-400">
-              Hero
+              About Me
             </a>
             <a href="#profile" className="hover:text-sky-400">
-              Profile
+              History
             </a>
             <a href="#skills" className="hover:text-sky-400">
               Tech Skills

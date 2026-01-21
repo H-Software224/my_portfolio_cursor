@@ -1,28 +1,67 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 type Skill = {
   name: string
   category: 'Programming Language' | 'Web Development' | 'App Development' | 'Database Management' | 'Graph Framework' | 'Version Control' | 'Cloud Framework'
+  logo?: string
+}
+
+function SkillBadge({ skill }: { skill: Skill }) {
+  const [imageError, setImageError] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
+
+  return (
+    <span className="group/skill inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1.5 text-[11px] font-medium text-slate-100 shadow-sm shadow-slate-900/60 transition hover:border-sky-500/50 hover:bg-slate-800/80">
+      {skill.logo && !imageError ? (
+        <div className="relative h-4 w-4 flex-shrink-0">
+          <img
+            src={skill.logo}
+            alt={skill.name}
+            className={`h-4 w-4 object-contain opacity-70 transition-opacity group-hover/skill:opacity-100 ${
+              imageLoaded ? 'opacity-70' : 'opacity-0'
+            }`}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => {
+              setImageError(true)
+              setImageLoaded(false)
+            }}
+          />
+          {!imageLoaded && !imageError && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-2 w-2 animate-pulse rounded-full bg-slate-600" />
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-sky-500/20">
+          <span className="text-[8px] font-semibold text-sky-300">
+            {skill.name.charAt(0).toUpperCase()}
+          </span>
+        </div>
+      )}
+      <span>{skill.name}</span>
+    </span>
+  )
 }
 
 const skills: Skill[] = [
-  { name: 'Python', category: 'Programming Language' },
-  { name: 'SQL', category: 'Programming Language' },
-  { name: 'JavaScript', category: 'Programming Language' },
-  { name: 'C++', category: 'Programming Language' },
-  { name: 'HTML/CSS', category: 'Programming Language' },
-  { name: 'Dart/Flutter', category: 'Programming Language' },
-  { name: 'Kotlin', category: 'Programming Language' },
-  { name: 'Streamlit', category: 'Web Development' },
-  { name: 'React', category: 'Web Development' },
-  { name: 'Kotlin', category: 'App Development' },
-  { name: 'Dart/Flutter', category: 'App Development' },
-  { name: 'Node.js', category: 'Database Management' },
-  { name: 'MySQL', category: 'Database Management' },
-  { name: 'Figma', category: 'Graph Framework' },
-  { name: 'Git', category: 'Version Control' },
-  { name: 'AWS', category: 'Cloud Framework' },
-  { name: 'Docker', category: 'Cloud Framework' },
+  { name: 'Python', category: 'Programming Language', logo: '/images/skills/python.png' },
+  { name: 'SQL', category: 'Programming Language', logo: '/images/skills/sql.jpg' },
+  { name: 'JavaScript', category: 'Programming Language', logo: '/images/skills/javascript.png' },
+  { name: 'C++', category: 'Programming Language', logo: '/images/skills/cpp.png' },
+  { name: 'Flutter', category: 'Programming Language', logo: '/images/skills/flutter.png' },
+  { name: 'Kotlin', category: 'Programming Language', logo: '/images/skills/kotlin.png' },
+  { name: 'Streamlit', category: 'Web Development', logo: '/images/skills/streamlit.png' },
+  { name: 'React', category: 'Web Development', logo: '/images/skills/react.png' },
+  { name: 'Kotlin', category: 'App Development', logo: '/images/skills/kotlin.png' },
+  { name: 'Flutter', category: 'App Development', logo: '/images/skills/flutter.png' },
+  { name: 'Node.js', category: 'Database Management', logo: '/images/skills/nodejs.png' },
+  { name: 'MySQL', category: 'Database Management', logo: '/images/skills/mysql.png' },
+  { name: 'Figma', category: 'Graph Framework', logo: '/images/skills/figma.png' },
+  { name: 'Git', category: 'Version Control', logo: '/images/skills/git.png' },
+  { name: 'AWS', category: 'Cloud Framework', logo: '/images/skills/aws.png' },
+  { name: 'Docker', category: 'Cloud Framework', logo: '/images/skills/docker.png' },
 ]
 
 const sectionVariants = {
@@ -91,21 +130,7 @@ export function TechSkills() {
               {skills
                 .filter((skill) => skill.category === category)
                 .map((skill) => (
-                  <span
-                    key={skill.name}
-                    className="group/skill inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1.5 text-[11px] font-medium text-slate-100 shadow-sm shadow-slate-900/60 transition hover:border-sky-500/50 hover:bg-slate-800/80"
-                  >
-                    <img
-                      src={`/images/skills/${skill.name.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-')}.svg`}
-                      alt={skill.name}
-                      className="h-3.5 w-3.5 flex-shrink-0 opacity-70 transition-opacity group-hover/skill:opacity-100"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement
-                        target.style.display = 'none'
-                      }}
-                    />
-                    <span>{skill.name}</span>
-                  </span>
+                  <SkillBadge key={skill.name} skill={skill} />
                 ))}
             </div>
           </motion.div>

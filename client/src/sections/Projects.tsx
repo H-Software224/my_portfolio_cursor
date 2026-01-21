@@ -26,7 +26,7 @@ const projects: Project[] = [
     techStack: ['Python'],
     description:
       '제4회 BDAI X ANIMATION 채용 데이터 분석 공모전 ',
-    thumbnail: '/images/projects/smartfactory.jpg',
+    thumbnail: '/images/projects/smartfactory.png',
     background:
       '서비스 내에서 유저 이탈률이 높게 나타나고 있었고, 개인화되지 않은 콘텐츠 노출이 주요 원인으로 분석되었습니다. ' +
       '데이터 팀에서는 로그 데이터는 충분하지만, 이를 서비스 레벨에서 활용하는 추천 시스템이 없다는 문제가 있었습니다.',
@@ -49,7 +49,7 @@ const projects: Project[] = [
     techStack: ['Python', 'HTML/CSS', 'Flask', 'OpenAI'],
     description:
       '강의자의 설명을 한글-영문 유사도로 측정하여 전공 용어 교정을 돕는 웹 서비스 개발',
-    thumbnail: '/images/projects/termcorrector.jpg',
+    thumbnail: '/images/projects/termcorrector.png',
     background:
       '학교 3학년 2학기에 데이터캡스톤디자인 과목을 이수해야 하였으며, 데이터적 관점을 되살려 기존에 없었던 것을 문제 정의의 방향으로 두어서 완성 산출물까지 만드려는 과정을 나아가기 위해 데이터캡스톤디자인 과목 주제로 선정하였습니다.',
     problem:
@@ -74,6 +74,7 @@ const projects: Project[] = [
     techStack: ['Python', 'Streamlit', 'FastAPI', 'OpenAI', 'Langchain'],
     description:
       '강의 녹음에 포함한 전공 용어 자동으로 변환하는 서비스 - 경희대학교 Conference 우수상',
+    thumbnail: '/images/projects/lecturebot.png',
     background:
       'Streamlit을 이용하여서 Langchain이라는 AI Agent을 이용하여서 활용하기 위해 책을 읽고나서 나도 AI Agent라는 챗봇을 만들어서 수강과목에 대한 질문 챗봇을 만들기로 하였습니다. 이참에 Langchain을 이용하여서 직접 Python을 활용하고 싶어서 지원하였습니다.',
     problem: '자신이 수강신청할 과목에 대해서 과목에 대하여 궁금한 내용을 강의계획서에 찾아본다고 하더라도 강의계획서의 내용의 양이 많아서 막상 수강하고 싶은 학생들이 궁금한 질문들만 발췌해서 물어보는 데에 다 기억을 못할 수도 있고 혼자 외우기가 까먹을 수도 있습니다.',
@@ -100,6 +101,7 @@ const projects: Project[] = [
       '데이터톤을 이용하여 주제를 연령별로 의식주 생활의 문제를 다루며 하루 무박 해커톤으로 해결하기 위한 서비스를 만드는 것을 수행하였습니다.',
     problem:
       '2015~2024년에 10대 비만율을 2배 정도 증가하는 문제가 발생 그리고 급식의 영양소의 불균형으로 인하여 섭취 과다 및 부족의 문제로 인하여 생기는 질병들이 발생이 흔하다는 문제를 방향으로 정하였습니다.',
+    thumbnail: '/images/projects/nutrition_recommendation.png',
     process: [
       '석식을 제공받지않은 학생 및 영양소의 불균형을 겪고 있는 학생들을 목표대상으로 정하였습니다.', 
       '학교에서 주어지는 급식정보를 이용하여 영양소 성분들의 함유량들을 추출합니다.', 
@@ -128,6 +130,7 @@ const projects: Project[] = [
       '이번 khuthon에서 주제는 “농업에 대한 기술화”라는 주제를 이용해서 자신의 위치의 주소를 역지오코딩을 이용하여서 위도와 경도로 변환하여서 이것을 서버와 클라이언트를 통해 서로 전송하는 것을 이용하였습니다. ',
     problem:
       '“농업의 기술화”라는 주제를 이용하여 과거에 해커톤이라는 것은 단기간에 주제를 찾아내어서 아이디어 기획 및 개발 및 유지보수까지 거쳐야만 완성된 산출물이라고 할 수 있었습니다.',
+    thumbnail: '/images/projects/agriculture_tech.png',
     process: [
       '“농업의 기술화”를 이용하여서 자신의 위치 위도, 경도 측정하였습니다.', 
       'Google Maps API를 이용하여서 자신의 주소를 이용하여 Geocoding으로 위도, 경도 데이터로 변환합니다.',
@@ -148,7 +151,7 @@ const projects: Project[] = [
     techStack: ['Python', 'OpenAI', 'YouTube API'],
     description:
       'Youtube에서 듣고 싶은 음악 장르 추천 후 자동 재생하는 서비스 개발',
-    thumbnail: '/images/projects/music-recommendation.jpg',
+    thumbnail: '/images/projects/music_recommendation.png',
     background:
       '2022년부터 2023년까지 OPENAI와 YOUTUBE을 이용하여서 직접 챗봇으로 추천하는 시스템을 개발하고 싶었습니다.',
     problem:
@@ -173,19 +176,21 @@ const projects: Project[] = [
     techStack: ['Python', 'scikit-learn', 'MLflow', 'FastAPI', 'PostgreSQL'],
     description:
       '개인 캡스톤디자인 프로젝트로 앱 서비스로 개발 프로젝트',
-    thumbnail: '/images/projects/instagram-auto.jpg',
+    thumbnail: '/images/projects/shareaddict.png',
     background:
-      '2022년부터 2023년까지 OPENAI와 YouTube을 이용하여서 직접 챗봇으로 추천하는 시스템을 개발하고 싶었습니다.',
+      '2일과 생활 속에서 밤늦게까지 디지털 매체에 노출되어 있는 시간이 많아지면서 디지털 중독에 빠지는 사람들이 많아지고 있습니다. 이러한 디지털 중독 문제를 해결하기 위해서 Adyshare API를 이용하여서 규칙 위반시 Instagram에 자동 공유하는 앱 서비스를 개발하기 위해 개인 캡스톤디자인 프로젝트 제목으로 선정하였습니다.',
     problem:
-      'OPENAI와 YOUTUBE API를 처음 다루는 만큼 내가 이걸 직접 수작업으로 내가 만들 수 있을까라고 고민을 하기도 하였으며, 완성 못하면 어떡할까 조마조마했었습니다.',
+      '디지털 매체의 노출이 자유로운 만큼 디지털 매체의 사용에 대해서 사용자가 절제하는 방향으로 나아가는 것이 필요합니다. 스마트폰 노출 문제에 있어 이러한 사용자가 스마트폰에 중독되었다는 것을 개인 차원에서 해결하는 것이 아닌 모든 커뮤니티 범위에서 자신이 디지털 매체에 중독되었다는 것을 개인 범위에 한정하지 않고  다른사람들도 알게 하도록 하는 것이 필요합니다.',
     process: [
-      '서로 사용자가 좋아하는 음악의 스타일 및 장르 그리고 가수 이름을 질의 및 응답합니다.',
-      '추천하고 싶은 곡에 대하여 YOUTUBE로 검색하는 기능을 이용하여 노래를 자동 추천합니다.',
-      '음악을 자동 재생해주는 봇을 만들었다.',
+      '내가 만든 앱에 적용할 앱 미사용 규칙 세부사항을 적는다.',
+      '정해진 시간대에 앱을 터치하면 위반, 앱을 터치 안 하면 위반하지 않았다라고 탐지한다.', 
+      '위반이 감지하면, 자동적으로 인스타그램 게시판에 공유가 된다.', 
+      '다른 사람들이 내가 올린 게시판을 보고 반응들을 남긴다.', 
+      '나를 언급하여 앱 사생활에 대해서 여러 반응을 남기며, 이것을 보고 나는 소셜 프레셔(압박)을 받고 다음부터 앱을 사용하지 않은 데에 있어서 신중하게 하도록 전환을 시킨다.',
     ],
     results: [
-      '결과적으로 질의 및 응답을 통해서 전체적으로 Prompt Engineering을 통해서 학습을 시켰습니다.', 
-      '거의 원하고자 하는 답변으로 추천을 잘 하였으며, youtube 재생까지 문제 없이 진행을 하게 되었습니다.',
+      '사용자가 규칙 위반 시 인스타그램의 게시판으로 다른 사람들에게 100% 공유합니다.', 
+      '규칙을 저장할 시 내가 앱 규칙을 위반하지 않겠다는 시도 75% 실현.',
     ],
   },
   {
@@ -198,7 +203,6 @@ const projects: Project[] = [
     description:
       '여러 실험 결과를 일관되게 관리하기 위한 내부용 도구를 개발했습니다. ' +
       'MLflow를 활용한 실험 트래킹과 FastAPI 기반 리포트 API를 제공했습니다.',
-    thumbnail: '/images/projects/ott-sentiment.jpg',
     background:
       '2023 년 기준으로 방송매체 이용행태조사를 결과를 통해서 10 ~ 20 대가 가장 많이 시청하고 있었습니다. 유튜브, 넷플릭스, 티빙이 가장 대표적으로 보고 있는 OTT 매체들이다. 하지만, 이러한 OTT 매체들도 긍정적인 영향인 것도 있고, 부정적인 영향에 미치는 것이 있어서 궁금하여서 이 연구를 진행하였습니다.',
     problem:
