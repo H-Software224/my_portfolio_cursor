@@ -5,6 +5,8 @@ type TimelineItem = {
   title: string
   subtitle?: string
   description?: string
+  image?: string
+  logo?: string
 }
 
 const sectionVariants = {
@@ -36,6 +38,7 @@ const education: TimelineItem[] = [
     title: '경희대학교',
     subtitle: '소프트웨어융합대학 소프트웨어융합학과 데이터사이언스트랙 전공',
     description: '1. 소프트웨어융합학과의 데이터 사이언스 트랙으로 캡스톤디자인은 한 학기 동안 우리나라에 존재하는 사회 문제들을 분석하며 차별점에 대해 찾는 것이 피땀흐르는 노력이라고 느꼈습니다. 2. 졸업논문을 캡스톤디자인을 기반으로 서론 -> 관련 연구 -> 본론 -> 결론 형식으로 탐구하는 연구를 명확하게 파악',
+    logo: '/images/profile/kyunghee-university.jpg',
   },
   {
     period: '2025.07 – 2025.08',
@@ -109,30 +112,37 @@ const certificates: TimelineItem[] = [
   {
     period: '2025',
     title: '소프트웨어 역량시험(TOPCIT) 3수준',
+    logo: '/images/profile/topcit.jpg',
   },
   {
     period: '2024',
     title: 'SQL 개발자(SQLD)', 
+    logo: '/images/profile/sqld.jpg',
   },
   {
     period: '2025',
     title: '데이터분석 준전문가(ADsP)',
+    logo: '/images/profile/adsp.jpg',
   },
   {
     period: '2022',
     title: '컴퓨터활용능력 1급',
+    logo: '/images/profile/computer-expert.jpg',
   },
   {
     period: '2010',
     title: '워드프로세서 2급',
+    logo: '/images/profile/word-processor.jpg',
   },
   {
     period: '2025',
     title: 'OPIc IL',
+    logo: '/images/profile/opic.jpg',
   },
   {
     period: '2025',
     title: 'TOEIC 570점',
+    logo: '/images/profile/toeic.jpg',
   },
 ]
 
@@ -154,22 +164,45 @@ function TimelineColumn({
       <h3 className="text-sm font-semibold tracking-tight text-slate-50">{title}</h3>
       <ol className="space-y-4 border-l border-slate-800 pl-3 text-xs text-slate-300">
         {items.map((item) => (
-          <li key={`${title}-${item.title}-${item.period}`} className="space-y-1">
-            <div className="relative mb-1">
-              <span className="absolute -left-4 top-1.5 h-2 w-2 rounded-full bg-sky-400" />
-              <p className="text-[11px] uppercase tracking-[0.16em] text-slate-400">
-                {item.period}
-              </p>
+          <li key={`${title}-${item.title}-${item.period}`} className="space-y-2">
+            <div className="flex items-start gap-3">
+              {item.logo && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3 }}
+                  className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg border border-slate-800 bg-slate-900/50"
+                >
+                  <img
+                    src={item.logo}
+                    alt={item.title}
+                    className="h-full w-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.style.display = 'none'
+                    }}
+                  />
+                </motion.div>
+              )}
+              <div className="flex-1 space-y-1">
+                <div className="relative mb-1">
+                  <span className="absolute -left-4 top-1.5 h-2 w-2 rounded-full bg-sky-400" />
+                  <p className="text-[11px] uppercase tracking-[0.16em] text-slate-400">
+                    {item.period}
+                  </p>
+                </div>
+                <p className="text-xs font-medium text-slate-50">{item.title}</p>
+                {item.subtitle && (
+                  <p className="text-[11px] text-slate-300">{item.subtitle}</p>
+                )}
+                {item.description && (
+                  <p className="text-[11px] leading-relaxed text-slate-400">
+                    {item.description}
+                  </p>
+                )}
+              </div>
             </div>
-            <p className="text-xs font-medium text-slate-50">{item.title}</p>
-            {item.subtitle && (
-              <p className="text-[11px] text-slate-300">{item.subtitle}</p>
-            )}
-            {item.description && (
-              <p className="text-[11px] leading-relaxed text-slate-400">
-                {item.description}
-              </p>
-            )}
           </li>
         ))}
       </ol>

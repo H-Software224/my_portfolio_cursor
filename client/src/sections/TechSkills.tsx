@@ -93,10 +93,18 @@ export function TechSkills() {
                 .map((skill) => (
                   <span
                     key={skill.name}
-                    className="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1 text-[11px] font-medium text-slate-100 shadow-sm shadow-slate-900/60"
+                    className="group/skill inline-flex items-center gap-1.5 rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1.5 text-[11px] font-medium text-slate-100 shadow-sm shadow-slate-900/60 transition hover:border-sky-500/50 hover:bg-slate-800/80"
                   >
-                    <span className="mr-1 inline-block h-1.5 w-1.5 rounded-full bg-sky-400" />
-                    {skill.name}
+                    <img
+                      src={`/images/skills/${skill.name.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-')}.svg`}
+                      alt={skill.name}
+                      className="h-3.5 w-3.5 flex-shrink-0 opacity-70 transition-opacity group-hover/skill:opacity-100"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.style.display = 'none'
+                      }}
+                    />
+                    <span>{skill.name}</span>
                   </span>
                 ))}
             </div>

@@ -13,6 +13,7 @@ type Project = {
   problem: string
   process: string[]
   results: string[]
+  thumbnail?: string
 }
 
 const projects: Project[] = [
@@ -25,6 +26,7 @@ const projects: Project[] = [
     techStack: ['Python'],
     description:
       '제4회 BDAI X ANIMATION 채용 데이터 분석 공모전 ',
+    thumbnail: '/images/projects/smartfactory.jpg',
     background:
       '서비스 내에서 유저 이탈률이 높게 나타나고 있었고, 개인화되지 않은 콘텐츠 노출이 주요 원인으로 분석되었습니다. ' +
       '데이터 팀에서는 로그 데이터는 충분하지만, 이를 서비스 레벨에서 활용하는 추천 시스템이 없다는 문제가 있었습니다.',
@@ -47,6 +49,7 @@ const projects: Project[] = [
     techStack: ['Python', 'HTML/CSS', 'Flask', 'OpenAI'],
     description:
       '강의자의 설명을 한글-영문 유사도로 측정하여 전공 용어 교정을 돕는 웹 서비스 개발',
+    thumbnail: '/images/projects/termcorrector.jpg',
     background:
       '학교 3학년 2학기에 데이터캡스톤디자인 과목을 이수해야 하였으며, 데이터적 관점을 되살려 기존에 없었던 것을 문제 정의의 방향으로 두어서 완성 산출물까지 만드려는 과정을 나아가기 위해 데이터캡스톤디자인 과목 주제로 선정하였습니다.',
     problem:
@@ -145,6 +148,7 @@ const projects: Project[] = [
     techStack: ['Python', 'OpenAI', 'YouTube API'],
     description:
       'Youtube에서 듣고 싶은 음악 장르 추천 후 자동 재생하는 서비스 개발',
+    thumbnail: '/images/projects/music-recommendation.jpg',
     background:
       '2022년부터 2023년까지 OPENAI와 YOUTUBE을 이용하여서 직접 챗봇으로 추천하는 시스템을 개발하고 싶었습니다.',
     problem:
@@ -169,6 +173,7 @@ const projects: Project[] = [
     techStack: ['Python', 'scikit-learn', 'MLflow', 'FastAPI', 'PostgreSQL'],
     description:
       '개인 캡스톤디자인 프로젝트로 앱 서비스로 개발 프로젝트',
+    thumbnail: '/images/projects/instagram-auto.jpg',
     background:
       '2022년부터 2023년까지 OPENAI와 YouTube을 이용하여서 직접 챗봇으로 추천하는 시스템을 개발하고 싶었습니다.',
     problem:
@@ -193,6 +198,7 @@ const projects: Project[] = [
     description:
       '여러 실험 결과를 일관되게 관리하기 위한 내부용 도구를 개발했습니다. ' +
       'MLflow를 활용한 실험 트래킹과 FastAPI 기반 리포트 API를 제공했습니다.',
+    thumbnail: '/images/projects/ott-sentiment.jpg',
     background:
       '2023 년 기준으로 방송매체 이용행태조사를 결과를 통해서 10 ~ 20 대가 가장 많이 시청하고 있었습니다. 유튜브, 넷플릭스, 티빙이 가장 대표적으로 보고 있는 OTT 매체들이다. 하지만, 이러한 OTT 매체들도 긍정적인 영향인 것도 있고, 부정적인 영향에 미치는 것이 있어서 궁금하여서 이 연구를 진행하였습니다.',
     problem:
@@ -294,11 +300,25 @@ export function Projects() {
                 setSelectedProject(project)
                 setActiveTab('process')
               }}
-              className="group flex flex-col justify-between rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/80 to-slate-950/80 p-4 text-left shadow-[0_0_0_1px_rgba(15,23,42,0.5)] transition hover:border-sky-500/80 hover:shadow-[0_0_40px_rgba(56,189,248,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/80 to-slate-950/80 text-left shadow-[0_0_0_1px_rgba(15,23,42,0.5)] transition hover:border-sky-500/80 hover:shadow-[0_0_40px_rgba(56,189,248,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
             >
-              <div className="space-y-3">
+              {project.thumbnail && (
+                <div className="relative -mx-4 -mt-4 mb-4 h-40 overflow-hidden border-b border-slate-800">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.name}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.style.display = 'none'
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                </div>
+              )}
+              <div className="space-y-3 px-4 pb-4">
                 <div className="flex items-start justify-between gap-2">
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-sm font-semibold tracking-tight text-slate-50">
                       {project.name}
                     </h3>
@@ -313,7 +333,7 @@ export function Projects() {
                 </p>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-1.5">
+              <div className="mt-4 flex flex-wrap gap-1.5 px-4 pb-4">
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
@@ -346,37 +366,53 @@ export function Projects() {
               className="relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/95 shadow-xl shadow-slate-950/80"
               onClick={(event) => event.stopPropagation()}
             >
-              <header className="border-b border-slate-800 px-5 py-4 sm:px-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-1">
-                    <h3 className="text-base font-semibold tracking-tight text-slate-50 sm:text-lg">
-                      {selectedProject.name}
-                    </h3>
-                    <p className="text-xs text-slate-300 sm:text-[13px]">
-                      {selectedProject.subtitle}
-                    </p>
-                    <div className="flex flex-wrap gap-3 pt-2 text-[11px] text-slate-300">
-                      <span className="flex items-center gap-1">
-                        <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                        기간 {selectedProject.period}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <span className="inline-flex h-1.5 w-1.5 rounded-full bg-sky-400" />
-                        역할 {selectedProject.role}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <span className="inline-flex h-1.5 w-1.5 rounded-full bg-violet-400" />
-                        참여 인원 {selectedProject.teamSize}
-                      </span>
-                    </div>
+              <header className="border-b border-slate-800">
+                {selectedProject.thumbnail && (
+                  <div className="relative h-48 overflow-hidden border-b border-slate-800 sm:h-56">
+                    <img
+                      src={selectedProject.thumbnail}
+                      alt={selectedProject.name}
+                      className="h-full w-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.style.display = 'none'
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                   </div>
-                  <button
-                    type="button"
-                    onClick={closeModal}
-                    className="rounded-full border border-slate-700 bg-slate-900/70 px-2 py-1 text-[11px] text-slate-300 hover:border-slate-500 hover:text-slate-100"
-                  >
-                    닫기
-                  </button>
+                )}
+                <div className="px-5 py-4 sm:px-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="space-y-1 flex-1">
+                      <h3 className="text-base font-semibold tracking-tight text-slate-50 sm:text-lg">
+                        {selectedProject.name}
+                      </h3>
+                      <p className="text-xs text-slate-300 sm:text-[13px]">
+                        {selectedProject.subtitle}
+                      </p>
+                      <div className="flex flex-wrap gap-3 pt-2 text-[11px] text-slate-300">
+                        <span className="flex items-center gap-1">
+                          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                          기간 {selectedProject.period}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-sky-400" />
+                          역할 {selectedProject.role}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-violet-400" />
+                          참여 인원 {selectedProject.teamSize}
+                        </span>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={closeModal}
+                      className="rounded-full border border-slate-700 bg-slate-900/70 px-2 py-1 text-[11px] text-slate-300 hover:border-slate-500 hover:text-slate-100 flex-shrink-0"
+                    >
+                      닫기
+                    </button>
+                  </div>
                 </div>
               </header>
 
