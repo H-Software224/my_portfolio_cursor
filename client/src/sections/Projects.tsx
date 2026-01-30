@@ -155,7 +155,6 @@ const projects: Project[] = [
       '감정 기반을 통해서 서울 동대문구에서 워킹 도시 개발이라는 주제를 선정하였습니다.',
     problem:
       '감정 기반을 통해서 서울 동대문구에서 워킹 도시 개발이라는 주제를 선정하였습니다.',
-    thumbnail: '/images/projects/walking_city.png',
     process: [
       '먼저 사용자의 인적 사항을 입력받는다.', 
       '사용자가 자신의 하루에 대해서 혹은 자신의 현재 기분을 마음 편히 털어 놓는 공간을 제공한다.',
@@ -381,7 +380,7 @@ const sectionVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
       staggerChildren: 0.08,
       delayChildren: 0.1,
     },
@@ -390,15 +389,14 @@ const sectionVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: (index: number) => ({
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.1 + index * 0.08,
       duration: 0.55,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
-  }),
+  },
 }
 
 export function Projects() {
@@ -459,7 +457,11 @@ export function Projects() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.4 }}
-              custom={index}
+              transition={{
+                delay: 0.1 + index * 0.08,
+                duration: 0.55,
+                ease: [0.22, 1, 0.36, 1] as const,
+              }}
               onClick={() => {
                 setSelectedProject(project)
                 setActiveTab('process')
@@ -526,7 +528,7 @@ export function Projects() {
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.98 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
               className="relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/95 shadow-xl shadow-slate-950/80"
               onClick={(event) => event.stopPropagation()}
             >

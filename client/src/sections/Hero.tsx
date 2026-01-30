@@ -7,7 +7,7 @@ const container = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
       staggerChildren: 0.08,
       delayChildren: 0.1,
     },
@@ -19,21 +19,20 @@ const headerItem = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
 }
 
 const cards = {
   hidden: { opacity: 0, y: 20 },
-  visible: (index: number) => ({
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.15 + index * 0.05,
       duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
-  }),
+  },
 }
 
 const values = [
@@ -131,7 +130,11 @@ export function Hero() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            custom={index}
+            transition={{
+              delay: 0.15 + index * 0.05,
+              duration: 0.5,
+              ease: [0.22, 1, 0.36, 1] as const,
+            }}
             className="group rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/80 to-slate-950/80 p-4 shadow-[0_0_0_1px_rgba(15,23,42,0.5)] transition hover:border-sky-500/80 hover:shadow-[0_0_40px_rgba(56,189,248,0.35)]"
           >
             <h3 className="mb-2 text-sm font-semibold tracking-tight text-slate-50">
