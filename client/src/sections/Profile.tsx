@@ -47,12 +47,19 @@ const education: TimelineItem[] = [
     logo: '/images/profile/datarian.png',
   },
   {
-    period: '2024.01 – 2024.02',
+    period: '2025.01 – 2025.02',
     title: 'LG AI Research',
     subtitle: 'LG Aimers 6기',
-    description: '개요: LG에서의 사회 문제들을 연구 내용:  온라인 이론 강의 + 온라인 공모전 데이터 프로젝트 수행 결과: 데이터 분석 성능 지표를 이용하여 데이터에 영향을 미치는 요소에 대한 수료 획득',
+    description: '개요: LG에서의 사회 문제들을 연구 내용:  주제: 난임 임신 확률 예측 AI',
     logo: '/images/profile/lg-color.png',
   },
+  {
+    period: '2024.01 – 2024.02',
+    title: 'LG AI Research',
+    subtitle: 'LG Aimers 4기',
+    description: '개요: LG에서의 사회 문제들을 연구 내용:  주제: MQL를 이용하여 B2B 고객 이탈 예측 모델 개발',
+    logo: '/images/profile/lg-color.png',
+  }
 ]
 
 const activities: TimelineItem[] = [
