@@ -292,34 +292,6 @@ const projects: Project[] = [
     ],
   },
   {
-    name: 'OTT 긍정/부정 감정 분석',
-    period: '2025.03 – 2025.06',
-    role: 'Data Analyst',
-    subtitle: 'OTT에 대해서 도구',
-    teamSize: '2명 (ML Engineer 2)',
-    techStack: ['Python', 'scikit-learn', 'MLflow', 'FastAPI', 'PostgreSQL'],
-    description:
-      '여러 실험 결과를 일관되게 관리하기 위한 내부용 도구를 개발했습니다. ' +
-      'MLflow를 활용한 실험 트래킹과 FastAPI 기반 리포트 API를 제공했습니다.',
-    background:
-      '2023 년 기준으로 방송매체 이용행태조사를 결과를 통해서 10 ~ 20 대가 가장 많이 시청하고 있었습니다. 유튜브, 넷플릭스, 티빙이 가장 대표적으로 보고 있는 OTT 매체들이다. 하지만, 이러한 OTT 매체들도 긍정적인 영향인 것도 있고, 부정적인 영향에 미치는 것이 있어서 궁금하여서 이 연구를 진행하였습니다.',
-    problem:
-      'PD 들은 자본력으로 앞세운 OTT 의 콘텐츠 시장 잠식에 대해서 TV 시청자들의 이탈과 방송사 수익 감소, 흥미위주의 콘텐츠 증가, 방송 프로그램 품질 저하의 결과로 이어지기도 한다. 그리고 OTT 의존 심화로 인하여 이를 대응하기가 어려워지고 있다는 것이 지금도 해결되고 있는 과제입니다. 지금 OTT 의 무분별한 시청 및 정보에 대한 이슈에 대해서 긍정적인지 부정적인지 파악 못하고 OTT 에 의존하는 경향이 늘어나고 있다.',
-    process: [
-      '가설 1: OTT 매체에 대한 뉴스 기사로 OTT 매체에 대한 긍정적 부정적 반응 예측 그리고 연도에 따라서 이 데이터를 통해 감정적으로 긍정인지 부정인지 가장 영향이 있는 요인이라고 알게 되었다. 그리고 연도에 따라 ott 에 대해서 내용이 긍정인지 부정인지 시간대에서 가장 영향이 작용된다는 것을 알 수 있다.', 
-      '가설 2: OTT 에서 언급된 OTT 와 뉴스 제목 및 뉴스 내용에 언급된 OTT 가 사용된 키워드 빈도에 따라 OTT 가 긍정적인지 부정적인지가 달라진다. k_cluster 의 개수가 높아질수록 훨씬 모델 성능이 높아진다는 것을 알 수 있다. 그리고 제목, 내용에 언급된 ott 매체의 키워드에 언급하는 데에 있어서 유의미한 차이가 있으며, ott 매체에 있는 키워드가 긍정인지 부정인지에 따라 차이가 있으며, 영향이 있습니다. DBSCAN 도 마찬가지로 epsilon, minPts 를 각각 0.3, 2 로 가정하였을 때 DBSCAN 기법을 이용하여 군집끼리 하여 comment_ott_keyword 의 수가 군집 수가 2 개보다 넘게 분포되어 있습니다.',
-      '가설 3: OTT 매체들에 언급되는 콘텐츠에 긍정적인지 부정적인지 키워드에 따라 긍정적인지 부정적인지에 따라 달라진다. Text Analysis 을 이용해서 하였을 때 추출한 품사 태깅으로 명사를 추출하였을 때 수치를 측정한 결과 거의 1 과 가까운 지표로 나오게 되어있지만, 가장 빈도가 있는 단어들이 긍정, 부정에 관련된 단어가 아니라는 점에서 이 가설을 결론 내는 데에 있어 빈도가 가장 큰 단어들에 속하지 않지만, 키워드를 통해서 긍정 부정을 판별할 수 있다는 것은 사실입니다'
-    ],
-    results: [
-      '이를 분석한 결과 가장 빈도가 많이 나온 키워드들로 학습이 되어서 긍정 부정을 판별할 수 있다는 것임을 알 수 있습니다.',
-      '이 본론의 결과를 통해서 이 분석은 OTT 에 대한 이슈들을 모아서 사람들에게 무분별하게 OTT 를 보지 않고 OTT 에 대해서 시간이 지나면서 긍정, 부정의 흐름이 변화에 영향에 미친다는 것을 보여주었다.', 
-      '그리고 OTT 에 대해서 많이 언급하거나 적게 언급할수록 더욱 강조를 해주어 이 OTT 가 얼마나 중요하게 평가로 인식 받고 있는지도 보여줄 수 있다는 것을 알 수 있었다.', 
-      '이 분석을 통해서 나중에 OTT 에 대한 이슈로 감성 분석하는 데에 있어서 텍스트 키워드에 대해 긍정 부정에 직접적인 단어 및 직접적으로 작용되지 않은 단어가 얼마나 감성 분석에 대해서 영향에 미치는지에 대해서 이 연구를 통해 알고 싶었다.',
-      '또한, 언론에 있는 시간대 (년, 월, 일)들도 OTT 에 대한 이슈에 긍정인지 부정인지 영향력을 확인해 보고 싶었다.',
-      '그리고 제목 및 내용이 얼마나 OTT 에 대해서 얼마나 언급되고 있는지 얼마나 강조하느냐에 따라서 영향력을 미치고 있는지 알고 싶었습니다.',
-    ],
-  },
-  {
     name: '웹에 가지고 있는 스트레스 Test로 웹 상태에 대한 지표 시각화 개발',
     period: '2025.03 – 2025.06',
     role: 'Backend Engineer',
@@ -451,7 +423,7 @@ export function Projects() {
         <div className="grid gap-4 lg:grid-cols-2">
           {projects.map((project, index) => (
             <motion.button
-              key={project.name}
+              key={`${project.name}-${project.period}-${index}`}
               type="button"
               variants={cardVariants}
               initial="hidden"
@@ -664,7 +636,7 @@ export function Projects() {
                           <ol className="space-y-2 text-[11px] text-slate-300">
                             {selectedProject.process.map((step, index) => (
                               <li
-                                key={step}
+                                key={`process-${index}-${step.substring(0, 20)}`}
                                 className="flex gap-2 rounded-lg bg-slate-900/80 p-2"
                               >
                                 <span className="mt-[2px] inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-sky-500/20 text-[10px] font-semibold text-sky-300">
@@ -688,9 +660,9 @@ export function Projects() {
                             Results & Insights
                           </h4>
                           <ul className="space-y-2 text-[11px] text-slate-300">
-                            {selectedProject.results.map((item) => (
+                            {selectedProject.results.map((item, index) => (
                               <li
-                                key={item}
+                                key={`result-${index}-${item.substring(0, 20)}`}
                                 className="flex gap-2 rounded-lg bg-slate-900/80 p-2"
                               >
                                 <span className="mt-[3px] inline-flex h-2 w-2 flex-none rounded-full bg-emerald-400" />
