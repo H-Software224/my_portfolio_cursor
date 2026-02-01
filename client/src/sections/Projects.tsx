@@ -683,4 +683,3 @@ export function Projects() {
     </>
   )
 }
-
